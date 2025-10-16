@@ -1,0 +1,34 @@
+# statistics_solver.py
+import statistics
+
+def main():
+    print("📊 Basic Statistics Solver")
+    print("Enter a list of numbers separated by commas (e.g. 10, 20, 30, 40):")
+    
+    try:
+        # Get user input and convert to list of floats
+        data = [float(x.strip()) for x in input("Numbers: ").split(',')]
+        
+        # Compute basic statistics
+        mean_val = statistics.mean(data)
+        median_val = statistics.median(data)
+        try:
+            mode_val = statistics.mode(data)
+        except statistics.StatisticsError:
+            mode_val = "No unique mode"
+        variance_val = statistics.variance(data)
+        stdev_val = statistics.stdev(data)
+
+        # Display results
+        print("\nResults:")
+        print(f"Mean: {mean_val}")
+        print(f"Median: {median_val}")
+        print(f"Mode: {mode_val}")
+        print(f"Variance: {variance_val}")
+        print(f"Standard Deviation: {stdev_val}")
+
+    except Exception as e:
+        print(f"⚠️ Error: {e}")
+
+if __name__ == "__main__":
+    main()
